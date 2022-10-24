@@ -1,0 +1,15 @@
+#page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+mat-form-field {
+    text-align: right;
+    padding: 0 28px;
+}

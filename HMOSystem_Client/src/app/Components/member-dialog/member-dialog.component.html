@@ -1,0 +1,207 @@
+<div id="page">
+    <p>פרטי חבר</p>
+    <p>{{data.member.name}}</p><br />
+    <form [formGroup]="memberForm" (ngSubmit)="save_member()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>שם פרטי</mat-label>
+            <input matInput placeholder="שם פרטי" [(ngModel)]="data.member.firstName" formControlName="memberFirstName">
+            <i matSuffix class="material-icons">person</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'memberFirstName')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field appearance="outline">
+            <mat-label>שם משפחה</mat-label>
+            <input matInput placeholder="שם משפחה" [(ngModel)]="data.member.lastName" formControlName="memberLastName">
+            <i matSuffix class="material-icons">person</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'memberLastName')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field appearance="outline">
+            <mat-label>תעודת זהות</mat-label>
+            <input matInput placeholder="תעודת זהות" [(ngModel)]="data.member.id" formControlName="memberId">
+            <i matSuffix class="material-icons">person</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'memberId')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field appearance="outline">
+            <mat-label>עיר</mat-label>
+            <input matInput placeholder="עיר" [(ngModel)]="data.member.city" formControlName="city">
+            <i matSuffix class="material-icons">home</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'city')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+        <mat-form-field appearance="outline">
+            <mat-label>רחוב</mat-label>
+            <input matInput placeholder="רחוב" [(ngModel)]="data.member.street" formControlName="street">
+            <i matSuffix class="material-icons">home</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'street')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+        <mat-form-field appearance="outline">
+            <mat-label>מס' בית</mat-label>
+            <input type="number" matInput placeholder="מס' בית" [(ngModel)]="data.member.numHouse" formControlName="numHouse">
+            <i matSuffix class="material-icons">home</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'numHouse')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field appearance="outline">
+            <mat-label>תאריך לידה</mat-label>
+            <input matInput placeholder="תאריך לידה" [matDatepicker]="datePicker" [(ngModel)]="data.member.birthday" formControlName="birthday">
+            <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+            <mat-datepicker #datePicker></mat-datepicker>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'birthday')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field appearance="outline">
+            <mat-label>טלפון</mat-label>
+            <input matInput placeholder="טלפון" [(ngModel)]="data.member.telephone" formControlName="telephone">
+            <i matSuffix class="material-icons">phone</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'telephone')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+
+        <mat-form-field appearance="outline">
+            <mat-label>טלפון נייד</mat-label>
+            <input matInput placeholder="טלפון נייד" [(ngModel)]="data.member.pelephone" formControlName="mobilePhone">
+            <i matSuffix class="material-icons">phone</i>
+            <mat-error>
+                <span *ngIf="memberForm.hasError('required', 'mobilePhone')">שדה זה חובה</span>
+            </mat-error>
+        </mat-form-field><br />
+        <mat-form-field appearance="outline">
+            <mat-label>תאריך תשובה חיובית</mat-label>
+            <input matInput placeholder="תאריך תשובה חיובית" [matDatepicker]="datePicker1" [(ngModel)]="data.member.positiveDate" formControlName="positiveDate">
+            <mat-datepicker-toggle matSuffix [for]="datePicker1"></mat-datepicker-toggle>
+            <mat-datepicker #datePicker1></mat-datepicker>
+        </mat-form-field><br />
+        <mat-form-field appearance="outline">
+            <mat-label>תאריך החלמה</mat-label>
+            <input matInput placeholder="תאריך החלמה" [matDatepicker]="datePicker2" [(ngModel)]="data.member.recoveryDate" formControlName="recoveryDate">
+            <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
+            <mat-datepicker #datePicker2></mat-datepicker>
+        </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>תאריך חיסון</mat-label>
+                <input matInput placeholder="1תאריך חיסון" [matDatepicker]="datePicker3" [(ngModel)]="data.member.vaccinations[0].dateVaccination" formControlName="dateVaccination1">
+                <mat-datepicker-toggle matSuffix [for]="datePicker3"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker3></mat-datepicker>
+             </mat-form-field><br />
+          
+             <mat-form-field appearance="outline">
+                <mat-label>יצרן</mat-label>
+                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[0].manufacturer" formControlName="manufacturer1">
+                <i matSuffix class="material-icons">person</i>
+            </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>תאריך חיסון</mat-label>
+                <input matInput placeholder="2תאריך חיסון" [matDatepicker]="datePicker4" [(ngModel)]="data.member.vaccinations[1].dateVaccination" formControlName="dateVaccination2">
+                <mat-datepicker-toggle matSuffix [for]="datePicker4"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker4></mat-datepicker>
+             </mat-form-field><br />
+          
+             <mat-form-field appearance="outline">
+                <mat-label>יצרן</mat-label>
+                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[1].manufacturer" formControlName="manufacturer2">
+                <i matSuffix class="material-icons">person</i>
+            </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>תאריך חיסון</mat-label>
+                <input matInput placeholder="3תאריך חיסון" [matDatepicker]="datePicker5" [(ngModel)]="data.member.vaccinations[2].dateVaccination" formControlName="dateVaccination3">
+                <mat-datepicker-toggle matSuffix [for]="datePicker5"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker5></mat-datepicker>
+             </mat-form-field><br />
+          
+             <mat-form-field appearance="outline">
+                <mat-label>יצרן</mat-label>
+                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[2].manufacturer" formControlName="manufacturer3">
+                <i matSuffix class="material-icons">person</i>
+            </mat-form-field><br />
+            <mat-form-field appearance="outline">
+                <mat-label>תאריך חיסון</mat-label>
+                <input matInput placeholder=" 4תאריך חיסון" [matDatepicker]="datePicker6" [(ngModel)]="data.member.vaccinations[3].dateVaccination" formControlName="dateVaccination4">
+                <mat-datepicker-toggle matSuffix [for]="datePicker6"></mat-datepicker-toggle>
+                <mat-datepicker #datePicker6></mat-datepicker>
+             </mat-form-field><br />
+          
+             <mat-form-field appearance="outline">
+                <mat-label>יצרן</mat-label>
+                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[3].manufacturer" formControlName="manufacturer4">
+                <i matSuffix class="material-icons">person</i>
+            </mat-form-field><br />
+
+    </form>
+    <div mat-dialog-actions>
+        <button mat-raised-button (click)="save_member()"
+            [disabled]="!(memberForm.valid && memberForm.valid)">שמירה</button>
+    </div>
+
+</div>
+ 
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteMember()">
+            <i class="material-icons">delete</i>
+          </button>
+
+<!-- <mat-label>שם משפחה</mat-label>
+    <form-field>
+        <input class="form-control" formControlName="memberLastName" required>
+    </form-field><br/>
+
+    <mat-label>תעודת זהות</mat-label>
+    <form-field>
+        <input class="form-control" formControlName="memberId" required>
+    </form-field><br/>
+
+    <mat-label>טלפון</mat-label>
+    <form-field>
+        <input class="form-control" formControlName="phone" required>
+    </form-field><br/> 
+    <mat-label>פלאפון</mat-label>
+    <mat-form-field>
+        <input class="form-control" formControlName="mobilePhone" required>
+    </mat-form-field><br/> 
+    <mat-form-field appearance="fill">
+        <mat-label>טלפון</mat-label>
+        <input matInput matInput placeholder="טלפון">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field><br/>
+    
+
+    <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" MatFormFieldControl="mobilePhone" required>
+        <span *ngIf="memberForm.hasError('required', 'mobilePhone')">שדה זה חובה</span>
+      </mat-form-field>
+    
+    
+
+
+    <mat-error *ngIf="memberForm.hasError('required', 'userFirstName') && memberForm.get('userFirstName').touched">שדה זה חובה</mat-error>
+</form>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="save_member()"
+        [disabled]="!(memberForm.valid && memberForm.valid)">שמירה</button>
+</div>
+  <p>
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <i matSuffix class="material-icons">sentiment_very_satisfied</i> -->
+<!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+<!-- <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p> -->
