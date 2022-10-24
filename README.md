@@ -1,7 +1,8 @@
 # HMOSystemProject
 Corona management system of a health fund for the Hadsim program.
 
-How to use:
+![image](https://user-images.githubusercontent.com/114953515/197651867-b7b1d7d5-07f3-4e42-b2f2-2516bf99332a.png)
+
 
 
 
