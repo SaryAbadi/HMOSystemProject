@@ -11,6 +11,7 @@ Corona management system of a health fund for the Hadsim program.
 
 
 This project was generated:
+
 •	In the MongoDB database.
 No installation is necessary, the DATABASE is in the cloud and can be accessed without installing software on the computer. As soon as the software starts running,
 you will immediately connect to the database located at https://cloud.mongodb.com.
