@@ -5,6 +5,8 @@ Corona management system of a health fund for the Hadsim program.
 
 
 
+![image](https://user-images.githubusercontent.com/114953515/197676533-3eb8fb6c-5747-472d-b7c2-d55f24fc1d23.png)
+
 
 This project was generated:
 •	In the MongoDB database.
