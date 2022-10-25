@@ -13,3 +13,13 @@ mat-form-field {
     text-align: right;
     padding: 0 28px;
 }
+.vaccination-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttons-div {
+    display: flex;
+    flex-direction: column;
+}

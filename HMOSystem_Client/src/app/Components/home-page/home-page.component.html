@@ -1,17 +1,16 @@
 <div id="page">
-    <h2>חברי קופת החולים</h2>
+    <h2>מערכת ניהול קורונה של קופת חולים</h2>
     <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="add()">
         <i class="material-icons">add</i>
       </button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 members-table">
 
-        <!-- Name Column -->
+        
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>תעודת זהות</th>
             <td mat-cell *matCellDef="let element">{{element.id}}</td>
         </ng-container>
 
-        <!-- Weight Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>שם</th>
             <td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
@@ -21,5 +20,35 @@
         <tr mat-row matRipple (click)="selected_row(row)"
             *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-</div>
+    <p>מספר חברים שאינם מחוסנים: {{x}}</p><br/><br/>
+
+
+
+
+
+    <!-- <div id="action-description">
+        <p>
+            This sample shows the literacy rate by country in 2015 with the default column series in the chart.
+        </p>
+    </div>
+    <div class="control-section">
+        <div align='center'>
+            <ejs-chart #roundcol style='display:block;' [chartArea]='chartArea' [width]='width' align='center' id='column-container' [primaryXAxis]='primaryXAxis'
+                [primaryYAxis]='primaryYAxis' [title]='title' [tooltip]='tooltip' (load)='load($event)' [legendSettings]='legend'
+                (pointRender)='pointRender($event)' [enableSideBySidePlacement]='placement'>
+                <e-series-collection>
+                    <e-series [dataSource]='data' type='Column' xName='Country' yName='Rate' width=2 [cornerRadius]='radius' [enableTooltip] = false opacity=0.5 columnWidth=0.8>
+                    </e-series>
+                    <e-series [dataSource]='data' type='Column' xName='Country' yName='Literacy_Rate' width=2 [marker]='marker' [cornerRadius]='radius' tooltipMappingName='Text' columnWidth=0.8>
+                    </e-series>
+                </e-series-collection>
+            </ejs-chart>
+        </div>
+    </div>
+    <style>
+        .control-section {
+            min-height: 450px;
+        }
+    </style>
+</div> -->
 

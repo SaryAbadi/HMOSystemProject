@@ -50,6 +50,23 @@ namespace BLL
         {
             members.DeleteOne(m => m.MemberId == id);
         }
-    
+
+        //public int notVaccination()
+       // {
+       //    var members = this.GetMembers();
+          //  int membersNUm = 0;
+          //  foreach (var item in members)
+         //  {
+        //
+          //      if (item.Vaccinations.Count() == 1 && item.Vaccinations[0].DateVaccination == "01.01.0001")
+          //         membersNUm++;
+       //     }
+      //     return membersNUm;
+       // }
+
+        public void NotVaccination(int x)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

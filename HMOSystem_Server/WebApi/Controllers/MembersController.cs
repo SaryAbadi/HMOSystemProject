@@ -56,5 +56,12 @@ namespace WebApi.Controllers
             membersService.DeleteMember(id);
             return Ok(membersService.GetMembers());
         }
+
+       // [HttpNotVaccination("[action]")]
+       // public IActionResult NotVaccination(int x)
+       // {
+       //    membersService.NotVaccination(x);
+        //   return Ok(membersService.notVaccination());
+        //}
     }
 }

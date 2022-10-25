@@ -2,18 +2,18 @@ import { vaccinations } from './Vaccinations';
 
 export class Members {
     constructor(
-        public MemberId: string,
-        public FirstName: string,
-        public LastName: string,
-        public Id: string,
-        public City: string,
-        public Street: string,
-        public NumHouse: number,
-        public Birthday: Date,
-        public Telephone: string,
-        public Pelephone: string,
-        public PositiveDate: Date,
-        public RecoveryDate: Date,
-        public Vaccinations:vaccinations[]) { }
+        public memberId: string,
+        public firstName: string,
+        public lastName: string,
+        public id: string,
+        public city: string,
+        public street: string,
+        public numHouse: number,
+        public birthday: any,
+        public telephone: string,
+        public pelephone: string,
+        public positiveDate: any,
+        public recoveryDate: any,
+        public vaccinations:vaccinations[]) { }
 }
 

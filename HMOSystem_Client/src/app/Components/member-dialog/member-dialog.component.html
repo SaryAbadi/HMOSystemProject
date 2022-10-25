@@ -48,7 +48,8 @@
         </mat-form-field><br />
         <mat-form-field appearance="outline">
             <mat-label>מס' בית</mat-label>
-            <input type="number" matInput placeholder="מס' בית" [(ngModel)]="data.member.numHouse" formControlName="numHouse">
+            <input type="number" matInput placeholder="מס' בית" [(ngModel)]="data.member.numHouse"
+                formControlName="numHouse">
             <i matSuffix class="material-icons">home</i>
             <mat-error>
                 <span *ngIf="memberForm.hasError('required', 'numHouse')">שדה זה חובה</span>
@@ -57,7 +58,8 @@
 
         <mat-form-field appearance="outline">
             <mat-label>תאריך לידה</mat-label>
-            <input matInput placeholder="תאריך לידה" [matDatepicker]="datePicker" [(ngModel)]="data.member.birthday" formControlName="birthday">
+            <input matInput placeholder="תאריך לידה" [matDatepicker]="datePicker" [(ngModel)]="data.member.birthday"
+                formControlName="birthday">
             <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
             <mat-datepicker #datePicker></mat-datepicker>
             <mat-error>
@@ -84,124 +86,60 @@
         </mat-form-field><br />
         <mat-form-field appearance="outline">
             <mat-label>תאריך תשובה חיובית</mat-label>
-            <input matInput placeholder="תאריך תשובה חיובית" [matDatepicker]="datePicker1" [(ngModel)]="data.member.positiveDate" formControlName="positiveDate">
+            <input matInput placeholder="תאריך תשובה חיובית" [matDatepicker]="datePicker1"
+                [(ngModel)]="data.member.positiveDate" formControlName="positiveDate">
             <mat-datepicker-toggle matSuffix [for]="datePicker1"></mat-datepicker-toggle>
             <mat-datepicker #datePicker1></mat-datepicker>
         </mat-form-field><br />
         <mat-form-field appearance="outline">
             <mat-label>תאריך החלמה</mat-label>
-            <input matInput placeholder="תאריך החלמה" [matDatepicker]="datePicker2" [(ngModel)]="data.member.recoveryDate" formControlName="recoveryDate">
+            <input matInput placeholder="תאריך החלמה" [matDatepicker]="datePicker2"
+                [(ngModel)]="data.member.recoveryDate" formControlName="recoveryDate">
             <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
             <mat-datepicker #datePicker2></mat-datepicker>
         </mat-form-field><br />
-            <mat-form-field appearance="outline">
-                <mat-label>תאריך חיסון</mat-label>
-                <input matInput placeholder="1תאריך חיסון" [matDatepicker]="datePicker3" [(ngModel)]="data.member.vaccinations[0].dateVaccination" formControlName="dateVaccination1">
-                <mat-datepicker-toggle matSuffix [for]="datePicker3"></mat-datepicker-toggle>
-                <mat-datepicker #datePicker3></mat-datepicker>
-             </mat-form-field><br />
-          
-             <mat-form-field appearance="outline">
-                <mat-label>יצרן</mat-label>
-                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[0].manufacturer" formControlName="manufacturer1">
-                <i matSuffix class="material-icons">person</i>
-            </mat-form-field><br />
-            <mat-form-field appearance="outline">
-                <mat-label>תאריך חיסון</mat-label>
-                <input matInput placeholder="2תאריך חיסון" [matDatepicker]="datePicker4" [(ngModel)]="data.member.vaccinations[1].dateVaccination" formControlName="dateVaccination2">
-                <mat-datepicker-toggle matSuffix [for]="datePicker4"></mat-datepicker-toggle>
-                <mat-datepicker #datePicker4></mat-datepicker>
-             </mat-form-field><br />
-          
-             <mat-form-field appearance="outline">
-                <mat-label>יצרן</mat-label>
-                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[1].manufacturer" formControlName="manufacturer2">
-                <i matSuffix class="material-icons">person</i>
-            </mat-form-field><br />
-            <mat-form-field appearance="outline">
-                <mat-label>תאריך חיסון</mat-label>
-                <input matInput placeholder="3תאריך חיסון" [matDatepicker]="datePicker5" [(ngModel)]="data.member.vaccinations[2].dateVaccination" formControlName="dateVaccination3">
-                <mat-datepicker-toggle matSuffix [for]="datePicker5"></mat-datepicker-toggle>
-                <mat-datepicker #datePicker5></mat-datepicker>
-             </mat-form-field><br />
-          
-             <mat-form-field appearance="outline">
-                <mat-label>יצרן</mat-label>
-                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[2].manufacturer" formControlName="manufacturer3">
-                <i matSuffix class="material-icons">person</i>
-            </mat-form-field><br />
-            <mat-form-field appearance="outline">
-                <mat-label>תאריך חיסון</mat-label>
-                <input matInput placeholder=" 4תאריך חיסון" [matDatepicker]="datePicker6" [(ngModel)]="data.member.vaccinations[3].dateVaccination" formControlName="dateVaccination4">
-                <mat-datepicker-toggle matSuffix [for]="datePicker6"></mat-datepicker-toggle>
-                <mat-datepicker #datePicker6></mat-datepicker>
-             </mat-form-field><br />
-          
-             <mat-form-field appearance="outline">
-                <mat-label>יצרן</mat-label>
-                <input matInput placeholder="יצרן" [(ngModel)]="data.member.vaccinations[3].manufacturer" formControlName="manufacturer4">
-                <i matSuffix class="material-icons">person</i>
-            </mat-form-field><br />
+
+
+
+
+        <div class="vaccination-div">
+            <!-- <br /><span>חיסונים</span><br /> -->
+            <div *ngFor="let vaccinations of data.member.vaccinations; let i= index">
+                <mat-form-field appearance="outline">
+                    <mat-label>תאריך חיסון {{i+1}}</mat-label>
+                    <input matInput placeholder="תאריך חיסון" [matDatepicker]="datePicker"
+                        [(ngModel)]="vaccinations.dateVaccination" formControlName="dateVaccination{{i+1}}">
+                    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #datePicker></mat-datepicker>
+                </mat-form-field><br />
+
+                <mat-form-field appearance="outline">
+                    <mat-label>יצרן {{i+1}}</mat-label>
+                    <input matInput placeholder="יצרן" [(ngModel)]="vaccinations.manufacturer"
+                        formControlName="manufacturer{{i+1}}">
+                    <i matSuffix class="material-icons">person</i>
+                </mat-form-field><br />
+            </div><br />
+        </div><br />
+
+
+
+
+
 
     </form>
-    <div mat-dialog-actions>
-        <button mat-raised-button (click)="save_member()"
-            [disabled]="!(memberForm.valid && memberForm.valid)">שמירה</button>
+    <div class="buttons-div">
+        <button mat-fab color="primary" type="button" aria-label="Example icon button with a delete icon"
+            (click)="addVaccination()">הוסף חיסון
+        </button>
+        <div mat-dialog-actions>
+            <button mat-raised-button (click)="save_member()"
+                [disabled]="!(memberForm.valid && memberForm.valid)">שמירה</button>
+        </div>
     </div>
 
 </div>
- 
-          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteMember()">
-            <i class="material-icons">delete</i>
-          </button>
 
-<!-- <mat-label>שם משפחה</mat-label>
-    <form-field>
-        <input class="form-control" formControlName="memberLastName" required>
-    </form-field><br/>
-
-    <mat-label>תעודת זהות</mat-label>
-    <form-field>
-        <input class="form-control" formControlName="memberId" required>
-    </form-field><br/>
-
-    <mat-label>טלפון</mat-label>
-    <form-field>
-        <input class="form-control" formControlName="phone" required>
-    </form-field><br/> 
-    <mat-label>פלאפון</mat-label>
-    <mat-form-field>
-        <input class="form-control" formControlName="mobilePhone" required>
-    </mat-form-field><br/> 
-    <mat-form-field appearance="fill">
-        <mat-label>טלפון</mat-label>
-        <input matInput matInput placeholder="טלפון">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field><br/>
-    
-
-    <mat-form-field appearance="fill">
-        <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" MatFormFieldControl="mobilePhone" required>
-        <span *ngIf="memberForm.hasError('required', 'mobilePhone')">שדה זה חובה</span>
-      </mat-form-field>
-    
-    
-
-
-    <mat-error *ngIf="memberForm.hasError('required', 'userFirstName') && memberForm.get('userFirstName').touched">שדה זה חובה</mat-error>
-</form>
-<div mat-dialog-actions>
-    <button mat-raised-button (click)="save_member()"
-        [disabled]="!(memberForm.valid && memberForm.valid)">שמירה</button>
-</div>
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <i matSuffix class="material-icons">sentiment_very_satisfied</i> -->
-<!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-<!-- <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-  </p> -->
+<button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="deleteMember()">
+    <i class="material-icons">delete</i>
+</button>

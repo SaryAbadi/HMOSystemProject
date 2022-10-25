@@ -1,6 +1,6 @@
 export class vaccinations{
     constructor(
-    public DateVaccination:Date,
-    public Manufacturer:string
+    public dateVaccination: any,
+    public manufacturer:string
 ){}
     }

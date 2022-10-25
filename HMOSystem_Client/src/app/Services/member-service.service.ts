@@ -16,9 +16,6 @@ export class MemberServiceService {
     var res = this.http.get<any>(this.baseUrl + "GetMembers");
     return res;
   }
-  // getMemberById(memberId: string): Observable<any[]> {
-  //   return this.http.get<any[]>(this.baseUrl + "GetMemberById?id=" + memberId);
-  // }
   addMember(member: Members): Observable<any> {
     return this.http.post<any>(this.baseUrl + "AddMember", member);
   }
@@ -29,4 +26,6 @@ export class MemberServiceService {
   deleteMember(id:string): Observable<any>{
     return this.http.delete<any>(this.baseUrl + "DeleteMember?id=" + id);
   }
+  // notVaccination(x:number): Observable<any>{
+  //   return this.http.notVaccination<any>(this.baseUrl + "notVaccination" + x);
 }
